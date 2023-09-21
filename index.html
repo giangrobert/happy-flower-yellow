@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Felzi Día</title>
+</head>
+
+<body>
+
+    <div id="castle">
+        <div id="table"></div>
+        <div class="container">
+            <h1 id="feliz" class="feliz">FELIZ DÍA DE LA PRIMAVERA 💛</h1>
+            <div class="typing-container">
+                <span id="typed-text" class="h2"></span><span class="cursor h2">|</span>
+            </div>
+        </div>
+
+
+        <div class="shade-wrap hover-animation" id="main">
+            <div id="flower-wrap">
+                <div id="stem"></div>
+                <div id="petal1"></div>
+                <div id="petal2"></div>
+                <div id="petal3"></div>
+                <div id="petal4"></div>
+                <div id="petal5"></div>
+                <div id="falling-petal"></div>
+                <div id="leaf1"></div>
+                <div id="leaf2"></div>
+            </div>
+        </div>
+        <div class="shade-wrap" id="sub">
+            <div id="shade-main-reflections"></div>
+            <div id="shade-main">
+                <div id="shade-handle-big"></div>
+                <div id="shade-handle-small"></div>
+                <div id="top-reflection"></div>
+                <div id="bottom-shade"></div>
+            </div>
+            <p style="color: white; position: relative; bottom: 0;">@Gian</p>
+        </div>
+        <audio controls autoplay class="audio">
+            <source src="audio.mp3" type="audio/mp3">
+            Tu navegador no soporta la reproducción de audio.
+        </audio>>
+    </div>
+    <script>
+        // Solicitar al usuario su nombre mediante un cuadro de diálogo de alerta
+        const nombre = prompt("Por favor, ingrese su nombre:");
+
+        // Verificar si el usuario ingresó un nombre
+        if (nombre !== null && nombre.trim() !== "") {
+            // Crear un elemento de párrafo para mostrar el nombre
+            const mensaje = document.getElementById("feliz");
+            mensaje.textContent = `FELIZ DÍA DE LA PRIMAVERA 💛${nombre}💛.`;
+
+        } else {
+            // Si el usuario no ingresó un nombre o hizo clic en "Cancelar", muestra un mensaje predeterminado
+            alert("No ingresaste un nombre válido. Cargando mensaje predeterminado.");
+        }
+    </script>
+    <script src="script.js"></script>
+    <script>
+        const texts = ["¡Te desea tu amigo Gian 😊😃!", "Tu amigo que te aprecia Mushishishishisisisismooo", "Gracias por tu amistad💛"];
+        let count = 0;
+        let index = 0;
+        let currentText = '';
+        let letter = '';
+
+        (function type() {
+            if (count === texts.length) {
+                count = 0;
+            }
+            currentText = texts[count];
+            letter = currentText.slice(0, ++index);
+
+            document.getElementById('typed-text').textContent = letter;
+            if (letter.length === currentText.length) {
+                count++;
+                index = 0;
+                setTimeout(type, 2000); // Este tiempo es el que esperará antes de empezar a escribir el siguiente texto.
+            } else {
+                setTimeout(type, 120); // Este tiempo controla la rapidez con la que se escriben las letras.
+            }
+        }());
+    </script>
+</body>
+
+</html>
