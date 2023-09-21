@@ -10,16 +10,17 @@
 
 <body>
     <div id="castle">
-        <audio controls autoplay class="audio">
+        <audio class="audio" id="background-audio" preload="auto" autoplay loop>
             <source src="audio.mp3" type="audio/mp3">
             Tu navegador no soporta la reproducción de audio.
-        </audio>>
+        </audio>
         <div id="table"></div>
         <div class="container">
             <h1 id="feliz" class="feliz">FELIZ DÍA DE LA PRIMAVERA 💛</h1>
             <div class="typing-container">
                 <span id="typed-text" class="h2"></span><span class="cursor h2">|</span>
             </div>
+            <!-- <button id="play-button">Click para escuchar la Música</button> -->
         </div>
 
 
@@ -46,8 +47,17 @@
             </div>
             <p style="color: white; position: relative; bottom: 0;">@Gian</p>
         </div>
-        
+
     </div>
+    <script>
+        const audio = document.getElementById('background-audio');
+
+        // Reproduce la música automáticamente cuando se carga la página
+        audio.play().catch(error => {
+            // Handle the error if playback fails
+            console.error(error);
+        });
+    </script>
     <script>
         // Solicitar al usuario su nombre mediante un cuadro de diálogo de alerta
         const nombre = prompt("Por favor, ingrese su nombre:");
@@ -64,6 +74,7 @@
         }
     </script>
     <script src="script.js"></script>
+
     <script>
         const texts = ["¡Te desea tu amigo Gian 😊😃!", "Tu amigo que te aprecia Mushishishishisisisismooo", "Gracias por tu amistad💛"];
         let count = 0;
