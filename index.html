@@ -20,7 +20,7 @@
             <div class="typing-container">
                 <span id="typed-text" class="h2"></span><span class="cursor h2">|</span>
             </div>
-            <!-- <button id="play-button">Click para escuchar la Música</button> -->
+            <button id="play-button">Click para escuchar la Música</button>
         </div>
 
 
@@ -50,15 +50,6 @@
 
     </div>
     <script>
-        const audio = document.getElementById('background-audio');
-
-        // Reproduce la música automáticamente cuando se carga la página
-        audio.play().catch(error => {
-            // Handle the error if playback fails
-            console.error(error);
-        });
-    </script>
-    <script>
         // Solicitar al usuario su nombre mediante un cuadro de diálogo de alerta
         const nombre = prompt("Por favor, ingrese su nombre:");
 
@@ -72,6 +63,14 @@
             // Si el usuario no ingresó un nombre o hizo clic en "Cancelar", muestra un mensaje predeterminado
             alert("No ingresaste un nombre válido. Cargando mensaje predeterminado.");
         }
+        const audio = document.getElementById('background-audio');
+        const playButton = document.getElementById('play-button');
+
+        playButton.addEventListener('click', () => {
+            audio.play().catch(error => {
+                console.error(error);
+            });
+        });
     </script>
     <script src="script.js"></script>
 
