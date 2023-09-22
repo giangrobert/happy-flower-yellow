@@ -375,3 +375,17 @@
 
   opacity: 0%;
 }
+#play-button{
+  padding: 10px;
+  border-radius: 50px;
+  margin: 20px;
+  color: #001920;
+  background-color: #fdd847;
+}
+#play-button:hover{
+  padding: 10px;
+  border-radius: 50px;
+  margin: 20px;
+  color: #001920;
+  background-color: #ffffff;
+}
